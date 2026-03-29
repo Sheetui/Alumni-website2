@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Alumni Page | Connect • Network • Grow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/alumni-logo.png" class="logo-img" alt="Alumni logo">
+                Alumni
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><button class="btn btn-outline" id="openLogin">Login</button></li>
+                <li><button class="btn btn-primary" id="openRegister">Register</button></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>WELCOME TO GOVERNMENT POLYTECHNIC BHUBANESWAR ALUMNI</h1>
+            <p class="hero-subtitle">A centralized digital space where alumni register, interact, share experiences, and stay updated with college activities and opportunities.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-lg" id="heroRegister">Join as Alumni</button>
+                <button class="btn btn-outline btn-lg" id="heroLogin">Already a Member?</button>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>PLATFORM FEATURES</h2>
+        <p class="section-subtitle">Building a strong alumni network that supports current students and institutional growth</p>
+        <div class="features-grid">
+            <div class="feature-card" id="featureProfile">
+                <div class="feature-icon">👤</div>
+                <h3>Profile Management</h3>
+                <p>Create and manage your profile, update professional details, and connect with fellow graduates.</p>
+            </div>
+            <div class="feature-card" id="featureEvents">
+                <div class="feature-icon">📅</div>
+                <h3>Events & Notices</h3>
+                <p>Stay informed about reunions, workshops, seminars, and college activities.</p>
+            </div>
+            <div class="feature-card" id="featureJobs">
+                <div class="feature-icon">💼</div>
+                <h3>Jobs & Internships</h3>
+                <p>Access job openings, internships, and career guidance for students.</p>
+            </div>
+            <div class="feature-card" id="featureNetworking">
+                <div class="feature-icon">🤝</div>
+                <h3>Alumni Feedback</h3>
+                <p>Share your feedback to help improve academics, facilities, and alumni engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <p id="loginError" class="error-msg"></p>
+                <button type="button" class="link-button" id="forgotPasswordLink">Forgot password?</button>
+                <div id="forgotPasswordSection" class="forgot-section">
+                    <p class="forgot-title">Reset your password</p>
+                    <div class="form-group">
+                        <label for="fpEmail">Registered Email</label>
+                        <input type="email" id="fpEmail" placeholder="Enter your registered email">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fpNewPassword">New Password</label>
+                            <input type="password" id="fpNewPassword" placeholder="New password (min 6 characters)">
+                        </div>
+                        <div class="form-group">
+                            <label for="fpConfirmPassword">Confirm Password</label>
+                            <input type="password" id="fpConfirmPassword" placeholder="Re-enter new password">
+                        </div>
+                    </div>
+                    <p id="forgotError" class="error-msg"></p>
+                    <p id="forgotSuccess" class="success-msg"></p>
+                    <button type="button" class="btn btn-outline btn-block" id="forgotSubmit">Update Password</button>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p class="form-footer">Demo: admin@college.edu / admin123 (Admin) | alumni@test.com / alumni123 (Alumni)</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Alumni Registration</h2>
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" required placeholder="your@email.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regBatch">Batch / Year</label>
+                        <input type="text" id="regBatch" placeholder="e.g. 2020">
+                    </div>
+                    <div class="form-group">
+                        <label for="regCourse">Course / Department</label>
+                        <select id="regCourse">
+                            <option value="">Select</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="MOM">MOM</option>
+                            <option value="Beauty Culture">Beauty Culture</option>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Architecture">Architecture</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="IoT">IoT</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="regCompanyType">Current Company / Higher Studies</label>
+                    <select id="regCompanyType">
+                        <option value="company" selected>Current Company</option>
+                        <option value="higher">Higher Studies</option>
+                    </select>
+                </div>
+
+                <div class="form-group toggle-section company-toggle company-type-company active" id="regCompanySection">
+                    <label for="regCompanyName">Company Name</label>
+                    <input type="text" id="regCompanyName" placeholder="e.g. Tech Corp">
+                </div>
+
+                <div class="form-group toggle-section company-toggle company-type-higher" id="regHigherStudiesSection">
+                    <label for="regHigherStudiesName">College / University</label>
+                    <input type="text" id="regHigherStudiesName" placeholder="e.g. ABC University">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" required placeholder="Create password" minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password</label>
+                        <input type="password" id="regConfirmPassword" required placeholder="Confirm password">
+                    </div>
+                </div>
+                <p id="registerError" class="error-msg"></p>
+                <p id="registerSuccess" class="success-msg"></p>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Alumni Feedback Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content feedback-modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Alumni Feedback Form</h2>
+            <form id="feedbackForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fbName">Name of the Alumni</label>
+                        <input type="text" id="fbName" required placeholder="Enter full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="fbEmail">Email ID</label>
+                        <input type="email" id="fbEmail" required placeholder="Enter email">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fbAcademicYear">Academic Year</label>
+                        <input type="text" id="fbAcademicYear" required placeholder="e.g. 2019">
+                    </div>
+                    <div class="form-group">
+                        <label for="fbAddress">Present Address</label>
+                        <input type="text" id="fbAddress" required placeholder="Enter present address">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fbStatus">Current Status</label>
+                    <select id="fbStatus" required>
+                        <option value="service">In Service</option>
+                        <option value="higher">In Higher Study</option>
+                    </select>
+                </div>
+
+                <div class="form-row feedback-status-group feedback-service-group" id="fbServiceFields">
+                    <div class="form-group">
+                        <label for="fbDesignation">Designation</label>
+                        <input type="text" id="fbDesignation" placeholder="Enter designation">
+                    </div>
+                    <div class="form-group">
+                        <label for="fbOrganization">Name of the Organization</label>
+                        <input type="text" id="fbOrganization" placeholder="Enter organization name">
+                    </div>
+                </div>
+
+                <div class="form-row feedback-status-group feedback-higher-group" id="fbHigherFields">
+                    <div class="form-group">
+                        <label for="fbProgram">Program Name</label>
+                        <input type="text" id="fbProgram" placeholder="Enter program name">
+                    </div>
+                    <div class="form-group">
+                        <label for="fbInstitution">Name of the Institution</label>
+                        <input type="text" id="fbInstitution" placeholder="Enter institution name">
+                    </div>
+                </div>
+
+                <p class="feedback-note">Rating score: 4 = Excellent, 3 = Very Good, 2 = Good, 1 = Satisfactory</p>
+                <div class="feedback-table-wrap">
+                    <table class="feedback-table">
+                        <thead>
+                            <tr>
+                                <th>Sl No.</th>
+                                <th>Area</th>
+                                <th>Excellent</th>
+                                <th>Very Good</th>
+                                <th>Good</th>
+                                <th>Satisfactory</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Teaching-Learning Environment</td><td><input type="radio" name="q1" value="4" required></td><td><input type="radio" name="q1" value="3"></td><td><input type="radio" name="q1" value="2"></td><td><input type="radio" name="q1" value="1"></td></tr>
+                            <tr><td>2</td><td>Satisfaction Level with the curriculum</td><td><input type="radio" name="q2" value="4" required></td><td><input type="radio" name="q2" value="3"></td><td><input type="radio" name="q2" value="2"></td><td><input type="radio" name="q2" value="1"></td></tr>
+                            <tr><td>3</td><td>Academic Facilities</td><td><input type="radio" name="q3" value="4" required></td><td><input type="radio" name="q3" value="3"></td><td><input type="radio" name="q3" value="2"></td><td><input type="radio" name="q3" value="1"></td></tr>
+                            <tr><td>4</td><td>Students Interaction</td><td><input type="radio" name="q4" value="4" required></td><td><input type="radio" name="q4" value="3"></td><td><input type="radio" name="q4" value="2"></td><td><input type="radio" name="q4" value="1"></td></tr>
+                            <tr><td>5</td><td>Student's Discipline</td><td><input type="radio" name="q5" value="4" required></td><td><input type="radio" name="q5" value="3"></td><td><input type="radio" name="q5" value="2"></td><td><input type="radio" name="q5" value="1"></td></tr>
+                            <tr><td>6</td><td>Internship</td><td><input type="radio" name="q6" value="4" required></td><td><input type="radio" name="q6" value="3"></td><td><input type="radio" name="q6" value="2"></td><td><input type="radio" name="q6" value="1"></td></tr>
+                            <tr><td>7</td><td>Career counseling and Guidance</td><td><input type="radio" name="q7" value="4" required></td><td><input type="radio" name="q7" value="3"></td><td><input type="radio" name="q7" value="2"></td><td><input type="radio" name="q7" value="1"></td></tr>
+                            <tr><td>8</td><td>Placement Drive</td><td><input type="radio" name="q8" value="4" required></td><td><input type="radio" name="q8" value="3"></td><td><input type="radio" name="q8" value="2"></td><td><input type="radio" name="q8" value="1"></td></tr>
+                            <tr><td>9</td><td>Extra-curricular Activities</td><td><input type="radio" name="q9" value="4" required></td><td><input type="radio" name="q9" value="3"></td><td><input type="radio" name="q9" value="2"></td><td><input type="radio" name="q9" value="1"></td></tr>
+                            <tr><td>10</td><td>Overall Facilities</td><td><input type="radio" name="q10" value="4" required></td><td><input type="radio" name="q10" value="3"></td><td><input type="radio" name="q10" value="2"></td><td><input type="radio" name="q10" value="1"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="feedbackError" class="error-msg"></p>
+                <p id="feedbackSuccess" class="success-msg"></p>
+                <button type="submit" class="btn btn-primary btn-block">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="contact-footer">
+        <div class="contact-footer-inner">
+            <div class="contact-footer-text">
+                <h3>CONTACT US</h3>
+                <p class="contact-line"><strong>Government Polytechnic</strong></p>
+                <p class="contact-line"><strong>Bhubaneswar</strong></p>
+                <p class="contact-line">At-Plot No:1, Xavier Road Dist, Rail</p>
+                <p class="contact-line">Vihar, Chandrasekharpur,</p>
+                <p class="contact-line">Bhubaneswar, Odisha, India- 751013</p>
+                <p class="contact-line">Call: +(91)-674-2300947, 2301379</p>
+                <p class="contact-line">Email: principalgpbbsr@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

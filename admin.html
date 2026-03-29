@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | College Alumni Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alumni Admin</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><button class="btn btn-outline logout-btn-nav" id="logoutBtn">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Admin Control Panel</h1>
+        <p>Manage alumni, events, and job postings</p>
+    </header>
+
+    <div class="dashboard-nav tabs">
+        <button class="tab-btn active" data-tab="pending">Pending Registrations</button>
+        <button class="tab-btn" data-tab="alumni">Manage Alumni</button>
+        <button class="tab-btn" data-tab="addEvent">Post Event</button>
+        <button class="tab-btn" data-tab="addJob">Post Job</button>
+    </div>
+
+    <!-- Pending Registrations -->
+    <section id="pending" class="content-section tab-content active">
+        <h2>Pending Alumni Registrations</h2>
+        <div id="pendingList"></div>
+    </section>
+
+    <!-- Manage Alumni -->
+    <section id="alumni" class="content-section tab-content">
+        <h2>Manage Alumni</h2>
+        <input
+            type="text"
+            class="search-box admin-nav-search"
+            id="adminNavSearch"
+            placeholder="Search by name, email, company/college, batch year"
+        >
+        <div id="adminAlumniList" class="alumni-grid"></div>
+    </section>
+
+    <!-- Post Event -->
+    <section id="addEvent" class="content-section tab-content">
+        <h2>Post Event / Notice</h2>
+        <div class="card">
+            <form id="eventForm">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="eventTitle" required placeholder="Event or notice title">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="eventDesc" rows="4" required placeholder="Event details..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="eventDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="eventType">
+                            <option value="event">Event</option>
+                            <option value="notice">Notice</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Publish</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Post Job -->
+    <section id="addJob" class="content-section tab-content">
+        <h2>Post Job / Internship</h2>
+        <div class="card">
+            <form id="jobForm">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="jobTitle" required placeholder="Job or internship title">
+                </div>
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" id="jobCompany" required placeholder="Company name">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="jobDesc" rows="4" required placeholder="Job description and requirements..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="jobType">
+                            <option value="job">Full-time Job</option>
+                            <option value="internship">Internship</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Email</label>
+                        <input type="email" id="jobContact" placeholder="Apply at">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="contact-footer">
+        <div class="contact-footer-inner">
+            <div class="contact-footer-text">
+                <h3>CONTACT US</h3>
+                <p class="contact-line"><strong>Government Polytechnic</strong></p>
+                <p class="contact-line">Bhubaneswar</p>
+                <p class="contact-line">At-Plot No: 1 Xavier Road Dist, Rail</p>
+                <p class="contact-line">Vihar, Chandrasekharpur,</p>
+                <p class="contact-line">Bhubaneswar, Odisha, India- 751013</p>
+                <p class="contact-line">Call: + (91)-674-2300947, 2301379</p>
+                <p class="contact-line">Email: principalpgpbbsr@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!auth.isAdmin()) {
+                window.location.href = 'index.html';
+                return;
+            }
+            loadAdminPanel();
+        });
+    </script>
+</body>
+</html>
