@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Dashboard | College Alumni Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alumni</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><span id="userGreeting">Welcome!</span></li>
+                <li><button class="btn btn-outline logout-btn-nav" id="logoutBtn">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Alumni Dashboard</h1>
+        <p>Manage your profile, connect with alumni, and stay updated</p>
+    </header>
+
+    <div class="dashboard-nav tabs">
+        <button class="tab-btn active" data-tab="profile">My Profile</button>
+        <button class="tab-btn" data-tab="directory">Alumni Directory</button>
+        <button class="tab-btn" data-tab="events">Events & Notices</button>
+        <button class="tab-btn" data-tab="jobs">Jobs & Internships</button>
+    </div>
+
+    <!-- Profile Tab -->
+    <section id="profile" class="content-section tab-content active">
+        <h2>My Profile</h2>
+        <div class="card">
+            <form id="profileForm">
+                <div class="profile-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="profileName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="profileEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" id="profileMobile" placeholder="e.g. 9876543210">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select id="profileGender">
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Passing Year</label>
+                        <input type="text" id="profilePassingYear" placeholder="e.g. 2020">
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select id="profileCourse">
+                            <option value="">Select</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="MOM">MOM</option>
+                            <option value="Beauty Culture">Beauty Culture</option>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Architecture">Architecture</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="IoT">IoT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Company / Higher Studies</label>
+                        <select id="profileCompanyType">
+                            <option value="company" selected>Current Company</option>
+                            <option value="higher">Higher Studies</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group toggle-section company-toggle company-type-company active" id="profileCompanySection">
+                        <label>Company Name</label>
+                        <input type="text" id="profileCompanyName" placeholder="e.g. Tech Corp">
+                    </div>
+
+                    <div class="form-group toggle-section company-toggle company-type-higher" id="profileHigherStudiesSection">
+                        <label>College / University</label>
+                        <input type="text" id="profileHigherStudiesName" placeholder="e.g. ABC University">
+                    </div>
+                    <div class="form-group">
+                        <label>Experience</label>
+                        <input type="text" id="profileExperience" placeholder="e.g. 3 years">
+                    </div>
+                    <div class="form-group">
+                        <label>Profile Picture</label>
+                        <input type="url" id="profilePicture" placeholder="Link to your profile picture">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Key Skills</label>
+                    <textarea id="profileSkills" rows="2" placeholder="e.g. Java, React, Leadership"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Achievements</label>
+                    <textarea id="profileAchievements" rows="3" placeholder="Awards, recognitions, notable projects..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Profile</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Directory Tab -->
+    <section id="directory" class="content-section tab-content">
+        <h2>Alumni Directory</h2>
+        <input type="text" class="search-box" id="directorySearch" placeholder="Search by name, batch, or company...">
+        <div id="alumniList" class="alumni-grid"></div>
+    </section>
+
+    <!-- Events Tab -->
+    <section id="events" class="content-section tab-content">
+        <h2>Events & Notices</h2>
+        <div id="eventsList" class="event-list"></div>
+    </section>
+
+    <!-- Jobs Tab -->
+    <section id="jobs" class="content-section tab-content">
+        <h2>Jobs & Internships</h2>
+        <div id="jobsList" class="job-list"></div>
+    </section>
+
+    <footer class="contact-footer">
+        <div class="contact-footer-inner">
+            <div class="contact-footer-text">
+                <h3>CONTACT US</h3>
+                <p class="contact-line"><strong>Government Polytechnic</strong></p>
+                <p class="contact-line">Bhubaneswar</p>
+                <p class="contact-line">At-Plot No: 1 Xavier Road Dist, Rail</p>
+                <p class="contact-line">Vihar, Chandrasekharpur,</p>
+                <p class="contact-line">Bhubaneswar, Odisha, India- 751013</p>
+                <p class="contact-line">Call: + (91)-674-2300947, 2301379</p>
+                <p class="contact-line">Email: principalpgpbbsr@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!auth.isAlumni()) {
+                window.location.href = 'index.html';
+                return;
+            }
+            loadDashboard();
+        });
+    </script>
+</body>
+</html>
